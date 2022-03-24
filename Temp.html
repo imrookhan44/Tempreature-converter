@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Temp Converter</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+        <style>
+            body{
+                 padding: 50px 100px;
+                 /* color: #1e3c36; */
+                 background-color: #1e3c36;
+                 overflow: visible;
+            }
+            h1{
+                text-align: center;
+                color: #8faca6;
+            }
+            #container{
+                text-align: center;
+                background-color: #1abc9c;
+                padding: 50px;
+                height: 15rem;
+                border: solid 1px;
+                
+            }
+            .input-div{
+                display: inline-block;
+
+            }
+            .inp{
+padding: 5px 10px;
+margin: 10px;
+font-size: 30px;
+font-weight: bold;
+width: 250px;
+text-align: center;
+            }
+
+            .label{
+                font-size: 22px ;
+                 
+            }
+           #btnReset{
+                height: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto !important;
+                margin-top: 20px !important;
+            }
+p{
+    text-align: end;
+    color: aliceblue !important;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgb(24, 233, 177);
+  margin-top: 0;
+}
+
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+i{
+    /* margin: 12px; */
+    /* margin-left: 41rem; */
+   display: flex;
+   justify-content: end;
+   align-items: flex-end;
+}
+#sp{
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" href="">Home</a>
+            <!-- <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a> -->
+            <span id="sp">
+                <i class="fa-brands fa-whatsapp"></i>
+                &nbsp; &nbsp;
+
+                <i class="fa-brands fa-facebook"></i>
+                &nbsp; &nbsp;
+
+
+                <i class="fab fa-twitter"></i>
+                &nbsp; &nbsp;
+
+
+                Email: khannihar921@gmail.com
+            </span>
+
+        </div>
+        <h1>Temperature Converter</h1>
+
+
+        <div id="container">
+            <div class="input-div">
+                <label for="">Celsius</label><br>
+                <input type="number" name="" id="cel" value="0" class="inp">
+            </div> =
+            <div class="input-div">
+                <label for="">Fahrenheit</label><br>
+                <input type="number" name="" id="fah" value="32" class="inp">
+            </div>
+            <input type="button" id="btnReset" value="Reset" onclick="remove()">
+        </div>
+        <script>
+
+            var cel  = document.getElementById("cel");
+            var fah  = document.getElementById("fah");
+            var btn = document.getElementById("btnReset");
+
+            cel.addEventListener("input", function(){
+                let c = this.value
+                let f = (c * 9/5) + 32;
+                if (!Number.isInteger(f)) {
+                    f = f.toFixed(4);
+                    
+                }
+                fah.value = f
+
+            })
+
+            fah.addEventListener("input", function(){
+                let f  = this.value;
+                let c = (f - 32) * 5/9;
+                if (!Number.isInteger(c)) {
+                    
+                    c = c.toFixed(4);
+                }
+
+                cel.value = c
+            })
+
+            function remove() {
+                cel.value = 0;
+                fah.value  = 32;
+
+
+                
+            }
+
+            let btn2  = document.getElementById("btnReset")
+            btn2.style.cssText = "background: white; color: #1abc9c; border: solid 1px grey;";
+
+            </script>
+        <p>Made By Imran Khan</p>
+
+
+
+    </body>
+</html>
